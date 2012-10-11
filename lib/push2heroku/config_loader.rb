@@ -27,7 +27,7 @@ module Push2heroku
         puts "rails generate push2heroku:install"
         abort
       end
-      YAML.load(ERB.new(File.read(file)).result)
+      YAML.load(ERB.new(File.read(filename)).result)
     end
 
 

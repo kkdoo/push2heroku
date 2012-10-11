@@ -8,7 +8,7 @@ module Push2heroku
       @callbacks = callbacks
       @git = Git.new
       @commands = []
-      @config_file = config_path.join('push2heroku.yml')
+      @config_file = File.join(config_path, 'push2heroku.yml')
       @config = ConfigLoader.new(@config_file)
       after_initialize
     end
@@ -66,7 +66,7 @@ module Push2heroku
       commands.each do |cmd|
         begin
           puts "Going to execute: #{cmd}"
-          sh cmd
+          system(cmd)
         rescue Exception => e
           puts "command that failed was: #{cmd}"
           puts e
