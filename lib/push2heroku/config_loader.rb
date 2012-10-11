@@ -22,9 +22,7 @@ module Push2heroku
     private
 
     def load_config
-      file            = Rails.root.join('config', filename)
-
-      unless File.exists? file
+      unless File.exists? filename
         puts "you do not have config/push2heroku.yml file. Please execute "
         puts "rails generate push2heroku:install"
         abort
